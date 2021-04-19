@@ -1,0 +1,26 @@
+<%= form_with model: @task do |f| %>
+    <div class="form-proper">
+        <div>
+        <%= f.object.errors.full_messages.join(", ") if f.object.errors.any? %>
+        </div>
+        <div>
+            <%= f.label :category_id %><br>
+            <%= f.select :category_id, current_user.categories.collect { |category| [category.name, category.id] } %><br><br>
+        </div>
+        <div>
+            <%= f.label :name %><br>
+            <%= f.text_field :name, class: "text-field" %><br><br>
+        </div>
+        <div>
+            <%= f.label :description %><br>
+            <%= f.text_field :description, class: "text-field" %><br><br>
+        </div>
+        <div>
+            <%= f.label :due_date %><br>
+            <%= f.date_field :due_date %><br><br>
+        </div>
+        <div>
+            <%= f.submit %>
+        </div>
+    </div>
+<% end %>

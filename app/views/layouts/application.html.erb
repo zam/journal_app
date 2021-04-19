@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JournalApp</title>
+    <title>Simple-ToDo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <% if flash.any? %>
+      <div id="flash-messages">
+        <%= notice %>
+      </div>
+    <% end %>
+    <div id="dashboard">
+      <div id="user-menu">
+        <div id="user-info">
+          <i class="lar la-user-circle"></i> <%= current_user.first_name %>
+        </div>
+        <button><i class="las la-sign-out-alt la-sm"></i><%= link_to('Logout', destroy_user_session_path, method: :delete) %></button>
+      </div>
+      <div id="menu-tabs">
+        <div id="index-buttons">
+          <div><%= link_to 'Today', today_path %></div>
+          <div><%= link_to 'Tasks', tasks_path %></div>
+          <div><%= link_to 'Categories', categories_path %></div>
+          <div><%= link_to 'Completed', completed_tasks_path %></div>
+        </div>
+        <div id="create-buttons">
+          <div><%= link_to 'New Task', new_task_path(current_user) %></div>
+          <div><%= link_to 'New Category', new_category_path(current_user) %></div>
+        </div>
+      </div>
+  
+      <div id="main-area">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,12 @@
+<div id="category-area">
+    <% @categories.each do |category| %>
+        <div class="category-item">
+            <div class="category-info">
+                <%= link_to category.name, category_path(category) %>
+            </div>
+            <div class="category-buttons">
+                <%= render partial: 'category_buttons', locals: {category: category} %>
+            </div>
+        </div>
+    <% end %>
+</div>

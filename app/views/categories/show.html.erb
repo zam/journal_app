@@ -1,0 +1,16 @@
+<div id="category-area">
+    <div>Name<br><%= @category.name %></div><br>
+    <div>Description<br>
+        <% if @category.description.blank? %>
+            <em>No description</em><br>
+        <% else %>
+            <%= @category.description %><br>
+        <% end %>
+    </div><br>
+    <div class="category-buttons">
+        <%= link_to :back do %>
+            <i class="las la-arrow-circle-left"></i>
+        <% end %>
+        <%= render partial: 'category_buttons', locals: {category: @category} %>
+    </div>
+</div>

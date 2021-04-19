@@ -1,0 +1,6 @@
+<%= link_to edit_category_path(category), class: "edit-link" do %>
+    <i class="las la-pen"></i>
+<% end %>
+<%= link_to category_path(category), method: :delete, class: "delete-link", data: { confirm: "Delete #{category.name}?" } do %>
+    <i class="las la-trash-alt la-1x"></i>
+<% end %>

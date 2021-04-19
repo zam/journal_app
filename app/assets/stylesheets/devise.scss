@@ -1,0 +1,53 @@
+body {
+    background-color: #88A2AA;
+}
+.main-menu {
+    border-style: solid;
+    border-color: transparent;
+    border-width: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    width: 30vw;
+    max-width: 400px;
+    height: 75vh;
+    max-height: 750px;
+
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.field {
+    width: 100%;
+}
+
+#user_email, #user_password, #user_first_name, #user_last_name, #user_password_confirmation, .submit{
+    background-color: rgba(136, 162, 170, 0.5);
+    border-color: transparent;
+    height: 50px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    align-self: center;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.flash-messages{
+    left: 50%;
+    top: 5%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+div.field_with_errors {
+    display: inline;
+}

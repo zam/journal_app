@@ -1,0 +1,5 @@
+<% if current_user.categories.empty? %>
+    <%= "Please make a category first before creating a task" %>
+<% else %>
+    <%= render "form" %>
+<% end %>

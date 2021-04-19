@@ -1,0 +1,10 @@
+<div class="task-item">
+    <div class="task-info">
+        <div><%= link_to task.name, task_path(task) %> </div>
+        <div class="category-name"><%= task.category.name.truncate(27) %></div>
+        <div><%= task.due_date.strftime("%B %-d") %></div>
+    </div>
+    <div class="task-buttons">
+        <%= render partial: 'task_buttons', locals: {task: task} %>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div id="task-area">
+    <div>Name<br><%= @task.name %></div><br>
+    <div>Description<br>
+        <% if @task.description.blank? %>
+            <em>No description</em><br>
+        <% else %>
+            <%= @task.description %><br>
+        <% end %>
+    </div><br>
+    <div>Due date<br><%= @task.due_date.strftime("%B %-d") %></div><br>
+    <% if @task.completed? %>
+        <div>Completed at<br> <%= @task.completion_date.localtime.strftime('%B %e at %l:%M %p') %></div>
+    <% else %>
+        <div>Not yet complete</div>
+    <% end %>
+    <br>
+    <div class="show-task-buttons">
+        <%= link_to :back do %>
+            <i class="las la-arrow-circle-left"></i>
+        <% end %>
+        <%= render partial: 'task_buttons', locals: {task: @task} %>
+    </div>
+</div>
